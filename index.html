@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="13.dance — The #1 hub for dance challenges, tutorials, and dance culture. Hip hop, salsa, breakdance, K-pop, ballroom and more.">
+  <meta name="keywords" content="dance challenges, dance tutorials, hip hop dance, salsa tutorial, breakdance, K-pop dance, ballroom, contemporary dance">
+  <meta property="og:title" content="13.dance — Dance Challenges, Tutorials & Gear">
+  <meta property="og:description" content="The #1 hub for dance challenges, tutorials, and dance culture. Move. Create. Inspire.">
+  <meta property="og:url" content="https://13.dance">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@SpunkArt13">
+  <title>13.dance — Dance Challenges, Tutorials & Gear</title>
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #1a1a2e;
+      --card2: #12121a;
+      --accent: #ff2d78;
+      --accent2: #bf5af2;
+      --purple: #bf5af2;
+      --text: #f0f0f0;
+      --muted: #a0a0b8;
+      --border: #2a2a3e;
+      --radius: 12px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    @keyframes vtrPulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(1.3); }
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+
+    /* ── TOP BAR ── */
+    .top-bar {
+      background: var(--card2);
+      border-bottom: 1px solid var(--border);
+      padding: 6px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+    .top-bar-left { display: flex; align-items: center; gap: 14px; }
+    #btc-ticker {
+      color: #f7931a;
+      font-weight: 700;
+      font-family: monospace;
+      animation: pulse 2s infinite;
+    }
+
+    /* ── NAV ── */
+    nav {
+      background: rgba(10,10,15,0.95);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    .nav-logo {
+      font-size: 1.5rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: -0.5px;
+    }
+    .nav-tagline {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .tip-btn {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      border: none;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.15s;
+    }
+    .tip-btn:hover { opacity: 0.88; transform: scale(1.04); }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 72px 20px 56px;
+      text-align: center;
+      background: radial-gradient(ellipse at 50% 0%, rgba(255,45,120,0.12) 0%, transparent 65%),
+                  radial-gradient(ellipse at 80% 80%, rgba(191,90,242,0.08) 0%, transparent 55%);
+      animation: fadeInUp 0.7s ease both;
+    }
+    .hero h1 {
+      font-size: clamp(2.4rem, 7vw, 5rem);
+      font-weight: 900;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
+      background: linear-gradient(135deg, #fff 0%, var(--accent) 40%, var(--purple) 80%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradientShift 5s ease infinite;
+      margin-bottom: 18px;
+    }
+    .hero p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: var(--muted);
+      max-width: 600px;
+      margin: 0 auto 28px;
+    }
+    .hero-ctas { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      color: #fff;
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 1rem;
+      transition: opacity 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-primary:hover { opacity: 0.88; transform: scale(1.04); }
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 13px 28px;
+      border-radius: 30px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: border-color 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-secondary:hover { border-color: var(--accent); transform: scale(1.04); }
+
+    /* ── SECTION ── */
+    .section { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .section-title span { color: var(--accent); }
+    .section-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 24px; }
+
+    /* ── CATEGORY TABS ── */
+    .cat-tabs {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 28px;
+    }
+    .cat-btn {
+      background: var(--card2);
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .cat-btn:hover, .cat-btn.active {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+
+    /* ── VIDEO GRID ── */
+    #video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    @media (max-width: 900px) {
+      #video-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 560px) {
+      #video-grid { grid-template-columns: 1fr; }
+    }
+
+    .video-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+    }
+    .video-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(255,45,120,0.12);
+    }
+    .video-embed {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000;
+    }
+    .video-embed iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: 0;
+    }
+    .video-info { padding: 14px; }
+    .badge-row { display: flex; gap: 6px; margin-bottom: 8px; flex-wrap: wrap; }
+    .badge-cat {
+      background: rgba(255,45,120,0.15);
+      color: var(--accent);
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+    .badge-level {
+      background: rgba(191,90,242,0.15);
+      color: var(--purple);
+      padding: 2px 9px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+    }
+    .video-title {
+      color: var(--text);
+      font-size: 0.88rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    .share-btn {
+      display: inline-block;
+      background: #1da1f2;
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .share-btn:hover { opacity: 0.85; }
+
+    /* ── REDDIT SECTION ── */
+    .reddit-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+    }
+    .reddit-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    .reddit-icon {
+      width: 28px; height: 28px;
+      background: #ff4500;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #fff;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .reddit-post {
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .reddit-post:last-child { border-bottom: none; }
+    .reddit-post a {
+      color: var(--text);
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: color 0.2s;
+    }
+    .reddit-post a:hover { color: var(--accent); }
+    #reddit-dance-loading {
+      color: var(--muted);
+      font-size: 0.85rem;
+      padding: 8px 0;
+    }
+
+    /* ── GEAR SECTION ── */
+    .gear-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    @media (max-width: 700px) {
+      .gear-grid { grid-template-columns: 1fr; }
+    }
+    .gear-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+      text-align: center;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .gear-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .gear-icon { font-size: 2.4rem; }
+    .gear-name { font-size: 1rem; font-weight: 700; color: var(--text); }
+    .gear-desc { font-size: 0.82rem; color: var(--muted); }
+    .gear-link {
+      display: inline-block;
+      background: #ff9900;
+      color: #111;
+      padding: 7px 18px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      transition: opacity 0.2s;
+      margin-top: 4px;
+    }
+    .gear-link:hover { opacity: 0.88; }
+
+    /* ── FIVERR CARD ── */
+    .fiverr-card {
+      background: linear-gradient(135deg, #1dbf73 0%, #19a463 100%);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .fiverr-text h3 { font-size: 1.3rem; font-weight: 800; color: #fff; margin-bottom: 6px; }
+    .fiverr-text p { font-size: 0.9rem; color: rgba(255,255,255,0.85); }
+    .fiverr-btn {
+      background: #fff;
+      color: #1dbf73;
+      padding: 11px 26px;
+      border-radius: 20px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      display: inline-block;
+      flex-shrink: 0;
+    }
+    .fiverr-btn:hover { opacity: 0.88; }
+
+    /* ── AFFILIATE BANNER ── */
+    .affiliate-row {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    @media (max-width: 560px) { .affiliate-row { grid-template-columns: 1fr; } }
+    .aff-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+    .aff-card:hover { border-color: var(--accent2); transform: translateY(-2px); }
+    .aff-icon { font-size: 1.8rem; flex-shrink: 0; }
+    .aff-text h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 3px; }
+    .aff-text p { font-size: 0.78rem; color: var(--muted); }
+    .aff-link {
+      margin-left: auto;
+      background: var(--accent2);
+      color: #fff;
+      padding: 5px 14px;
+      border-radius: 16px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: opacity 0.2s;
+      flex-shrink: 0;
+    }
+    .aff-link:hover { opacity: 0.85; }
+
+    /* ── EMPIRE GRID ── */
+    .empire-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: center;
+    }
+    .empire-link {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 5px 13px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+    }
+    .empire-link:hover { background: var(--card); color: var(--accent); border-color: var(--accent); }
+    .empire-link.current { color: var(--accent); border-color: var(--accent); background: rgba(255,45,120,0.08); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--card2);
+      border-top: 1px solid var(--border);
+      padding: 36px 20px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      font-size: 1.6rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .footer-tagline { color: var(--muted); font-size: 0.85rem; margin-bottom: 16px; }
+    .footer-links { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 18px; }
+    .footer-links a { color: var(--muted); font-size: 0.82rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+    .footer-legal { color: var(--muted); font-size: 0.75rem; }
+    .footer-legal a { color: var(--accent); }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 0;
+    }
+
+    /* ── RESPONSIVE NAV ── */
+    @media (max-width: 480px) {
+      .nav-tagline { display: none; }
+      .top-bar-left span:not(#btc-ticker) { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="top-bar-left">
+    <span id="btc-ticker">₿ Loading...</span>
+    <span style="color:var(--border);">|</span>
+    <span>Move. Create. Inspire.</span>
+  </div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="https://twitter.com/SpunkArt13" target="_blank" rel="noopener" style="color:var(--muted);font-size:0.78rem;transition:color .2s;" onmouseover="this.style.color='#1da1f2'" onmouseout="this.style.color='var(--muted)'">@SpunkArt13</a>
+    <a href="https://spunkart.com" target="_blank" rel="noopener" style="color:var(--muted);font-size:0.78rem;transition:color .2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">SpunkArt.com</a>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div>
+    <div class="nav-logo">💃 13.dance</div>
+    <div class="nav-tagline">The #1 hub for dance challenges & tutorials</div>
+  </div>
+  <div class="nav-right">
+    <button class="tip-btn" onclick="openTip()">🧡 Tip</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Move. Create. Inspire.</h1>
+  <p>The best dance tutorials, challenges, and gear — all in one place.</p>
+  <div class="hero-ctas">
+    <a href="#videos" class="btn-primary">🎬 Watch Tutorials</a>
+    <a href="https://www.amazon.com/s?k=dance+shoes&tag=spunk01-20" target="_blank" rel="noopener" class="btn-secondary">🛒 Shop Gear</a>
+  </div>
+</section>
+
+<hr class="divider">
+
+<!-- VIDEO SECTION -->
+<div class="section" id="videos">
+  <div class="section-title">🎬 <span>Dance Challenges & Tutorials</span></div>
+  <p class="section-sub">Hip hop, salsa, breakdance, K-pop, ballroom, and more — hand-picked for every level.</p>
+
+  <!-- CATEGORY TABS -->
+  <div class="cat-tabs">
+    <button class="cat-btn active" onclick="filterVideos('all', this)">All</button>
+    <button class="cat-btn" onclick="filterVideos('hip-hop', this)">Hip Hop</button>
+    <button class="cat-btn" onclick="filterVideos('ballroom', this)">Ballroom</button>
+    <button class="cat-btn" onclick="filterVideos('salsa', this)">Salsa</button>
+    <button class="cat-btn" onclick="filterVideos('contemporary', this)">Contemporary</button>
+    <button class="cat-btn" onclick="filterVideos('breakdance', this)">Breakdance</button>
+    <button class="cat-btn" onclick="filterVideos('kpop', this)">K-Pop</button>
+    <button class="cat-btn" onclick="filterVideos('tutorials', this)">Tutorials</button>
+  </div>
+
+  <!-- VIDEO GRID -->
+  <div id="video-grid"></div>
+</div>
+
+<hr class="divider">
+
+<!-- REDDIT & GEAR ROW -->
+<div class="section">
+  <div style="display:grid;grid-template-columns:1fr 1.6fr;gap:24px;align-items:start;">
+
+    <!-- REDDIT -->
+    <div>
+      <div class="section-title" style="margin-bottom:14px;">🔴 <span>r/dance</span> Community</div>
+      <div class="reddit-card">
+        <div class="reddit-header">
+          <div class="reddit-icon">R</div>
+          <div>
+            <div style="font-weight:700;font-size:0.9rem;">Top Posts from r/dance</div>
+            <div style="font-size:0.75rem;color:var(--muted);">Updated every 10 seconds</div>
+          </div>
+        </div>
+        <div id="reddit-dance"><div id="reddit-dance-loading">Loading latest posts...</div></div>
+        <div style="margin-top:12px;">
+          <a href="https://www.reddit.com/r/dance/" target="_blank" rel="noopener" style="font-size:0.8rem;color:var(--accent);font-weight:700;">View all on Reddit →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- DANCE GEAR -->
+    <div>
+      <div class="section-title" style="margin-bottom:14px;">👟 <span>Dance Gear</span></div>
+      <div class="gear-grid">
+        <a href="https://www.amazon.com/s?k=dance+shoes&tag=spunk01-20" target="_blank" rel="noopener" class="gear-card">
+          <div class="gear-icon">👟</div>
+          <div class="gear-name">Dance Shoes</div>
+          <div class="gear-desc">Pro-grade footwear for every style</div>
+          <span class="gear-link">Shop Amazon</span>
+        </a>
+        <a href="https://www.amazon.com/s?k=dance+practice+clothes&tag=spunk01-20" target="_blank" rel="noopener" class="gear-card">
+          <div class="gear-icon">👗</div>
+          <div class="gear-name">Practice Clothes</div>
+          <div class="gear-desc">Move freely in the right fit</div>
+          <span class="gear-link">Shop Amazon</span>
+        </a>
+        <a href="https://www.amazon.com/s?k=dance+floor+mat&tag=spunk01-20" target="_blank" rel="noopener" class="gear-card">
+          <div class="gear-icon">🟦</div>
+          <div class="gear-name">Dance Floor Mat</div>
+          <div class="gear-desc">Practice safely anywhere at home</div>
+          <span class="gear-link">Shop Amazon</span>
+        </a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- RESPONSIVE OVERRIDE for Reddit/Gear row -->
+<style>
+  @media (max-width: 700px) {
+    .section > div[style*="grid-template-columns:1fr 1.6fr"] {
+      grid-template-columns: 1fr !important;
+    }
+    .gear-grid { grid-template-columns: repeat(3,1fr) !important; }
+  }
+  @media (max-width: 500px) {
+    .gear-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
+
+<hr class="divider">
+
+<!-- FIVERR CHOREOGRAPHER -->
+<div class="section">
+  <div class="section-title" style="margin-bottom:14px;">🎭 <span>Hire a Choreographer</span></div>
+  <div class="fiverr-card">
+    <div style="font-size:3rem;">🕺</div>
+    <div class="fiverr-text">
+      <h3>Work with a Pro Choreographer</h3>
+      <p>Get a custom routine, workshop, or video breakdown from a professional choreographer on Fiverr — fast, affordable, and tailored to your style.</p>
+    </div>
+    <a href="https://www.fiverr.com/s/spunkart" target="_blank" rel="noopener" class="fiverr-btn">Find a Choreographer →</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- CREATE CONTENT TOOLS -->
+<div class="section">
+  <div class="section-title" style="margin-bottom:14px;">✨ <span>Create Dance Content</span></div>
+  <p class="section-sub">Build your brand, create thumbnails, and grow your dance audience with AI tools.</p>
+  <div class="affiliate-row">
+    <a href="https://app.leonardo.ai/?via=spunkart" target="_blank" rel="noopener" class="aff-card">
+      <div class="aff-icon">🤖</div>
+      <div class="aff-text">
+        <h4>Leonardo AI</h4>
+        <p>Generate stunning dance visuals, posters, and content</p>
+      </div>
+      <span class="aff-link">Try Free</span>
+    </a>
+    <a href="https://www.canva.com/join/spunkart" target="_blank" rel="noopener" class="aff-card">
+      <div class="aff-icon">🎨</div>
+      <div class="aff-text">
+        <h4>Canva Pro</h4>
+        <p>Design flyers, social posts, and dance event graphics</p>
+      </div>
+      <span class="aff-link">Try Free</span>
+    </a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- EMPIRE GRID -->
+<div class="section" style="text-align:center;">
+  <div class="section-title" style="justify-content:center;margin-bottom:6px;">🌐 <span>Explore the Network</span></div>
+  <p class="section-sub" style="margin-bottom:18px;">Part of the SPUNK LLC digital empire</p>
+  <div class="empire-grid">
+    <a href="https://spunk.bet" target="_blank" rel="noopener" class="empire-link">spunk.bet</a>
+    <a href="https://pfp.best" target="_blank" rel="noopener" class="empire-link">pfp.best</a>
+    <a href="https://spunkart.com" target="_blank" rel="noopener" class="empire-link">spunkart.com</a>
+    <a href="https://13.money" target="_blank" rel="noopener" class="empire-link">13.money</a>
+    <a href="https://13.markets" target="_blank" rel="noopener" class="empire-link">13.markets</a>
+    <a href="https://13.golf" target="_blank" rel="noopener" class="empire-link">13.golf</a>
+    <a href="https://13.energy" target="_blank" rel="noopener" class="empire-link">13.energy</a>
+    <a href="https://13.dance" target="_blank" rel="noopener" class="empire-link current">13.dance</a>
+    <a href="https://free.institute" target="_blank" rel="noopener" class="empire-link">free.institute</a>
+    <a href="https://free.gripe" target="_blank" rel="noopener" class="empire-link">free.gripe</a>
+    <a href="https://chicago.coach" target="_blank" rel="noopener" class="empire-link">chicago.coach</a>
+    <a href="https://predict.horse" target="_blank" rel="noopener" class="empire-link">predict.horse</a>
+    <a href="https://predict.pics" target="_blank" rel="noopener" class="empire-link">predict.pics</a>
+    <a href="https://predict.mom" target="_blank" rel="noopener" class="empire-link">predict.mom</a>
+    <a href="https://predict.codes" target="_blank" rel="noopener" class="empire-link">predict.codes</a>
+    <a href="https://predict.boats" target="_blank" rel="noopener" class="empire-link">predict.boats</a>
+    <a href="https://predict.yachts" target="_blank" rel="noopener" class="empire-link">predict.yachts</a>
+    <a href="https://alien.best" target="_blank" rel="noopener" class="empire-link">alien.best</a>
+    <a href="https://plush.best" target="_blank" rel="noopener" class="empire-link">plush.best</a>
+    <a href="https://plush.surf" target="_blank" rel="noopener" class="empire-link">plush.surf</a>
+    <a href="https://clown.best" target="_blank" rel="noopener" class="empire-link">clown.best</a>
+    <a href="https://clown.surf" target="_blank" rel="noopener" class="empire-link">clown.surf</a>
+    <a href="https://clown.cam" target="_blank" rel="noopener" class="empire-link">clown.cam</a>
+    <a href="https://clown.sbs" target="_blank" rel="noopener" class="empire-link">clown.sbs</a>
+    <a href="https://iai.autos" target="_blank" rel="noopener" class="empire-link">iai.autos</a>
+    <a href="https://iai.boats" target="_blank" rel="noopener" class="empire-link">iai.boats</a>
+    <a href="https://i13.best" target="_blank" rel="noopener" class="empire-link">i13.best</a>
+    <a href="https://i13.buzz" target="_blank" rel="noopener" class="empire-link">i13.buzz</a>
+    <a href="https://i13.autos" target="_blank" rel="noopener" class="empire-link">i13.autos</a>
+    <a href="https://i13.lat" target="_blank" rel="noopener" class="empire-link">i13.lat</a>
+    <a href="https://i13.pics" target="_blank" rel="noopener" class="empire-link">i13.pics</a>
+    <a href="https://i13.space" target="_blank" rel="noopener" class="empire-link">i13.space</a>
+    <a href="https://ai13.fun" target="_blank" rel="noopener" class="empire-link">ai13.fun</a>
+    <a href="https://ai13.store" target="_blank" rel="noopener" class="empire-link">ai13.store</a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">💃 13.dance</div>
+  <div class="footer-tagline">The #1 hub for dance challenges, tutorials, and dance culture</div>
+  <div class="footer-links">
+    <a href="https://www.amazon.com/s?k=dance+shoes&tag=spunk01-20" target="_blank" rel="noopener">Dance Gear</a>
+    <a href="https://www.fiverr.com/s/spunkart" target="_blank" rel="noopener">Hire a Choreographer</a>
+    <a href="https://app.leonardo.ai/?via=spunkart" target="_blank" rel="noopener">Leonardo AI</a>
+    <a href="https://www.canva.com/join/spunkart" target="_blank" rel="noopener">Canva</a>
+    <a href="https://twitter.com/SpunkArt13" target="_blank" rel="noopener">@SpunkArt13</a>
+    <a href="https://spunkart.com" target="_blank" rel="noopener">SpunkArt.com</a>
+  </div>
+  <p class="footer-legal">
+    Built by <a href="https://spunkart.com" target="_blank" rel="noopener">SPUNK LLC</a> &bull;
+    Amazon links are affiliate links &bull;
+    <button onclick="openTip()" style="background:none;border:none;color:var(--accent);cursor:pointer;font-size:0.75rem;padding:0;">🧡 Tip</button>
+  </p>
+</footer>
+
+<!-- VTR BADGE -->
+<div style="position:fixed;bottom:12px;right:12px;background:#1a1a2e;border:1px solid #2a2a3e;border-radius:20px;padding:6px 14px;font-size:12px;color:#a0a0b8;z-index:9999;display:flex;align-items:center;gap:6px;" id="vtr-badge">
+  <span style="width:7px;height:7px;border-radius:50%;background:#ff2d78;animation:vtrPulse 2s infinite;display:inline-block;"></span>
+  <span id="vtr-count">...</span>
+</div>
+
+<!-- TIP MODAL -->
+<div id="tip-modal" onclick="if(event.target===this)closeTip()" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);align-items:center;justify-content:center;z-index:10000;">
+  <div style="background:#1a1a2e;border:1px solid #2a2a3e;border-radius:16px;padding:32px;max-width:420px;width:90%;text-align:center;">
+    <h3 style="color:#f0f0f0;margin-bottom:8px;">🧡 Tip Spunk</h3>
+    <p style="color:#a0a0b8;font-size:0.9rem;margin-bottom:20px;">Built by one person with AI. Every tip keeps these sites free. 🧡</p>
+    <div id="tip-addr" onclick="copyTip()" style="background:#0a0a0f;border:1px solid #2a2a3e;border-radius:8px;padding:12px;font-family:monospace;font-size:0.75rem;color:#00f5d4;word-break:break-all;cursor:pointer;margin-bottom:8px;">bc1pkepg42ctsvsxk499qu02qqyyz88gwjchnjpsu22wmng9rhpfv3jqw2t2hm</div>
+    <p style="color:#a0a0b8;font-size:0.8rem;margin-bottom:16px;">Click to copy • Bitcoin (BTC)</p>
+    <button onclick="closeTip()" style="background:#2a2a3e;color:#f0f0f0;border:none;padding:10px 24px;border-radius:8px;cursor:pointer;">Close</button>
+  </div>
+</div>
+
+<script>
+/* ── VIDEO DATA ── */
+const VIDEOS = [
+  {id:'gBj3zc0b88Q', title:"Bruno Mars - That's What I Like (Dance Tutorial)", category:'hip-hop', level:'Beginner'},
+  {id:'oygrmJFKYZY', title:'Lose Control - Contemporary Dance Piece', category:'contemporary', level:'Advanced'},
+  {id:'ub82Xb1C8os', title:'Salsa Basic Steps Tutorial for Beginners', category:'salsa', level:'Beginner'},
+  {id:'DksSHXlhpS8', title:'Breakdance Basics — Freezes & Power Moves', category:'breakdance', level:'Intermediate'},
+  {id:'YqeW9_5kURI', title:'K-Pop Dance Challenge — Learn in 10 Minutes', category:'kpop', level:'Beginner'},
+  {id:'8KaJdo4y6pM', title:'Bachata For Beginners — Full Tutorial', category:'salsa', level:'Beginner'},
+  {id:'LsoLEjrDngU', title:'Contemporary Dance — Emotional Expression', category:'contemporary', level:'Advanced'},
+  {id:'fJ9rUzIMcZQ', title:'Bohemian Rhapsody — Ballroom Showcase', category:'ballroom', level:'Professional'}
+];
+
+let activeCategory = 'all';
+
+function filterVideos(cat, btn) {
+  activeCategory = cat;
+  document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderVideos();
+}
+
+function renderVideos() {
+  const grid = document.getElementById('video-grid');
+  if (!grid) return;
+  const filtered = activeCategory === 'all' ? VIDEOS : VIDEOS.filter(v => v.category === activeCategory);
+  if (filtered.length === 0) {
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;color:var(--muted);padding:40px 0;font-size:0.95rem;">No videos in this category yet — check back soon!</div>';
+    return;
+  }
+  const tweet = encodeURIComponent('Check out this dance tutorial on 13.dance! @SpunkArt13 https://13.dance');
+  grid.innerHTML = filtered.map(v => `
+    <div class="video-card">
+      <div class="video-embed">
+        <iframe
+          src="https://www.youtube.com/embed/${v.id}?rel=0"
+          title="${v.title}"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+      <div class="video-info">
+        <div class="badge-row">
+          <span class="badge-cat">${v.category}</span>
+          <span class="badge-level">${v.level}</span>
+        </div>
+        <div class="video-title">${v.title}</div>
+        <a href="https://twitter.com/intent/tweet?text=${tweet}" target="_blank" rel="noopener" class="share-btn">Share Challenge →</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+/* ── REDDIT RSS ── */
+async function loadRedditDance() {
+  try {
+    const rss = await fetch('https://www.reddit.com/r/dance/top.rss?limit=5').then(r => r.text());
+    const doc = new DOMParser().parseFromString(rss, 'application/xml');
+    const entries = doc.querySelectorAll('entry');
+    const el = document.getElementById('reddit-dance');
+    if (!el) return;
+    if (!entries.length) {
+      el.innerHTML = '<div style="color:var(--muted);font-size:0.85rem;padding:8px 0;">No posts loaded — visit r/dance directly.</div>';
+      return;
+    }
+    el.innerHTML = Array.from(entries).slice(0, 5).map(e => {
+      const title = e.querySelector('title')?.textContent || 'Dance Post';
+      const link = e.querySelector('link')?.getAttribute('href') || '#';
+      return `<div class="reddit-post"><a href="${link}" target="_blank" rel="noopener">${title}</a></div>`;
+    }).join('');
+  } catch(err) {
+    const el = document.getElementById('reddit-dance');
+    if (el) el.innerHTML = '<div style="color:var(--muted);font-size:0.85rem;padding:8px 0;">Visit <a href="https://reddit.com/r/dance" target="_blank" rel="noopener" style="color:var(--accent);">r/dance</a> for the latest posts.</div>';
+  }
+}
+
+/* ── BTC TICKER ── */
+async function loadBTC() {
+  try {
+    const d = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json());
+    if (d.bitcoin) {
+      const el = document.getElementById('btc-ticker');
+      if (el) el.textContent = '₿ $' + d.bitcoin.usd.toLocaleString();
+    }
+  } catch(e) {}
+}
+
+/* ── INIT ── */
+renderVideos();
+loadRedditDance();
+loadBTC();
+setInterval(() => { loadRedditDance(); loadBTC(); }, 10000);
+
+/* ── TIP MODAL ── */
+function openTip() { var m = document.getElementById('tip-modal'); if (m) { m.style.display = 'flex'; } }
+function closeTip() { var m = document.getElementById('tip-modal'); if (m) { m.style.display = 'none'; } }
+function copyTip() {
+  navigator.clipboard.writeText('bc1pkepg42ctsvsxk499qu02qqyyz88gwjchnjpsu22wmng9rhpfv3jqw2t2hm').then(function() {
+    var el = document.getElementById('tip-addr');
+    if (el) { var o = el.textContent; el.textContent = '✓ Copied!'; setTimeout(function() { el.textContent = o; }, 2000); }
+  }).catch(function() {});
+}
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeTip(); });
+
+/* ── VTR ── */
+(function(){
+  if(window._vtrInit)return;window._vtrInit=true;
+  var DB='https://predict-network-ec767-default-rtdb.firebaseio.com';
+  var site=(location.hostname||'local').replace(/\./g,'_').replace(/[#$\[\]]/g,'_');
+  var sid='s'+Math.random().toString(36).slice(2)+Date.now().toString(36);
+  var sRef=DB+'/vtr/'+site+'/s/'+sid+'.json';
+  var allRef=DB+'/vtr/'+site+'/s.json';
+  var now=Date.now;
+  function ping(){fetch(sRef,{method:'PUT',body:JSON.stringify({t:now()}),headers:{'Content-Type':'application/json'}}).catch(function(){});}
+  function refresh(){
+    fetch(allRef).then(function(r){return r.json();}).then(function(d){
+      var n=1;
+      if(d&&typeof d==='object'){
+        var vals=Object.values(d);
+        n=Math.max(1,vals.filter(function(v){return v&&v.t&&(now()-v.t)<25000;}).length);
+        Object.entries(d).forEach(function(e){if(e[1]&&e[1].t&&(now()-e[1].t)>60000)fetch(DB+'/vtr/'+site+'/s/'+e[0]+'.json',{method:'DELETE'}).catch(function(){});});
+      }
+      var el=document.getElementById('vtr-count');
+      if(el)el.textContent=n+(n===1?' visitor':' visitors')+' online';
+    }).catch(function(){var el=document.getElementById('vtr-count');if(el)el.textContent='1 visitor online';});
+  }
+  var day=new Date().toISOString().slice(0,10);
+  var hRef=DB+'/vtr/'+site+'/hits/'+day+'.json';
+  fetch(hRef).then(function(r){return r.json();}).then(function(n){fetch(hRef,{method:'PUT',body:JSON.stringify((n||0)+1),headers:{'Content-Type':'application/json'}}).catch(function(){});}).catch(function(){});
+  window.addEventListener('pagehide',function(){fetch(sRef,{method:'DELETE',keepalive:true}).catch(function(){});});
+  ping();refresh();
+  setInterval(function(){ping();refresh();},10000);
+})();
+</script>
+</body>
+</html>
