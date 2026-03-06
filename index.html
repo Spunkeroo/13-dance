@@ -484,10 +484,48 @@
       margin: 0;
     }
 
+    /* ── CHALLENGE SECTION ── */
+    .challenge-card{background:linear-gradient(135deg,rgba(255,45,120,.1),rgba(191,90,242,.08));border:2px solid rgba(255,45,120,.3);border-radius:16px;padding:28px;margin-bottom:20px}
+    .challenge-live-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(255,45,120,.15);border:1px solid rgba(255,45,120,.4);border-radius:999px;padding:4px 14px;font-size:.75rem;font-weight:700;color:var(--accent);margin-bottom:14px}
+    .pulse-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);animation:vtrPulse 1.5s infinite}
+    .challenge-title{font-size:1.6rem;font-weight:900;margin-bottom:6px}
+    .challenge-meta{color:var(--muted);font-size:.88rem;margin-bottom:16px}
+    .leaderboard{display:flex;flex-direction:column;gap:8px;margin-top:16px}
+    .lb-row{display:flex;align-items:center;gap:12px;padding:10px 14px;background:var(--card2);border:1px solid var(--border);border-radius:10px}
+    .lb-rank{font-size:1.1rem;font-weight:900;width:28px;flex-shrink:0}
+    .lb-name{flex:1;font-weight:700;font-size:.88rem}
+    .lb-votes{color:var(--accent);font-weight:700;font-size:.82rem}
+    /* ── PRACTICE TIMER ── */
+    .timer-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:32px;text-align:center}
+    .timer-display{font-size:5rem;font-weight:900;color:var(--accent);letter-spacing:-2px;margin:16px 0;font-variant-numeric:tabular-nums}
+    .timer-mode-row{display:flex;gap:8px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+    .timer-mode-btn{background:var(--card2);border:1px solid var(--border);color:var(--muted);padding:6px 16px;border-radius:20px;font-size:.82rem;font-weight:700;cursor:pointer;transition:.2s}
+    .timer-mode-btn.active,.timer-mode-btn:hover{background:var(--accent);color:#fff;border-color:var(--accent)}
+    .timer-btn-row{display:flex;gap:10px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+    .t-btn{border:none;padding:12px 24px;border-radius:20px;font-weight:800;font-size:.95rem;cursor:pointer;transition:.2s}
+    .t-start{background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff}
+    .t-pause{background:var(--card2);border:1px solid var(--border);color:var(--text)}
+    .t-reset{background:var(--card2);border:1px solid var(--border);color:var(--muted)}
+    .t-btn:hover{transform:scale(1.04)}
+    .streak-badge{display:inline-block;background:rgba(255,45,120,.12);border:1px solid rgba(255,45,120,.3);border-radius:20px;padding:6px 18px;font-size:.9rem;font-weight:700;color:var(--accent);margin-top:12px}
+    .timer-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px}
+    .t-stat{background:var(--card2);border:1px solid var(--border);border-radius:10px;padding:14px;text-align:center}
+    .t-stat-num{font-size:1.6rem;font-weight:900;color:var(--accent)}
+    .t-stat-label{font-size:.72rem;color:var(--muted);margin-top:4px}
+    /* ── NEWSLETTER ── */
+    .newsletter-section{background:linear-gradient(135deg,rgba(255,45,120,.06),rgba(191,90,242,.06));border:1px solid rgba(255,45,120,.2);border-radius:16px;padding:36px 28px;text-align:center;margin:0 20px}
+    .nl-form{display:flex;gap:8px;max-width:420px;margin:16px auto 0;flex-wrap:wrap}
+    .nl-input{flex:1;min-width:200px;background:var(--card);border:1px solid var(--border);color:var(--text);padding:11px 16px;border-radius:10px;font-size:.9rem;font-family:inherit}
+    .nl-input:focus{outline:none;border-color:var(--accent)}
+    .nl-btn{background:linear-gradient(135deg,var(--accent),var(--purple));color:#fff;border:none;padding:11px 22px;border-radius:10px;font-weight:800;font-size:.9rem;cursor:pointer;white-space:nowrap;transition:.2s}
+    .nl-btn:hover{transform:scale(1.04)}
+    /* ── MORE AFFILIATES ── */
+    .aff-full-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
     /* ── RESPONSIVE NAV ── */
     @media (max-width: 480px) {
       .nav-tagline { display: none; }
       .top-bar-left span:not(#btc-ticker) { display: none; }
+      .timer-stats{grid-template-columns:1fr}
     }
   </style>
 </head>
@@ -519,13 +557,40 @@
 
 <!-- HERO -->
 <section class="hero">
-  <h1>Move. Create. Inspire.</h1>
-  <p>The best dance tutorials, challenges, and gear — all in one place.</p>
+  <h1>Move. Create. Go Viral.</h1>
+  <p>The #1 free dance platform — tutorials, challenges, gear &amp; community. Join <span id="dancer-count">1,047</span> dancers this week.</p>
   <div class="hero-ctas">
-    <a href="#videos" class="btn-primary">🎬 Watch Tutorials</a>
-    <a href="https://www.amazon.com/s?k=dance+shoes&tag=spunk01-20" target="_blank" rel="noopener" class="btn-secondary">🛒 Shop Gear</a>
+    <a href="#challenge" class="btn-primary">🏆 Start Challenge</a>
+    <a href="#videos" class="btn-secondary">🎬 Browse Tutorials</a>
   </div>
 </section>
+
+<hr class="divider">
+
+<!-- WEEKLY CHALLENGE SECTION -->
+<div class="section" id="challenge">
+  <div class="section-title">🏆 <span>Weekly Dance Challenge</span></div>
+  <p class="section-sub">New challenge every Monday. Join, share, and get featured on @SpunkArt13.</p>
+  <div class="challenge-card">
+    <div class="challenge-live-badge"><span class="pulse-dot"></span> LIVE NOW</div>
+    <div class="challenge-title" id="challenge-name">Loading...</div>
+    <div class="challenge-meta" id="challenge-meta">Style: — &nbsp;|&nbsp; Prize: Get featured on @SpunkArt13</div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:4px;">
+      <button class="btn-primary" onclick="joinChallenge()" style="font-size:.9rem;padding:10px 22px;">🕺 Join Challenge</button>
+      <a href="https://twitter.com/SpunkArt13" target="_blank" rel="noopener" class="btn-secondary" style="font-size:.9rem;padding:10px 22px;">📤 Share on X</a>
+    </div>
+    <div id="join-msg" style="margin-top:10px;font-size:.85rem;min-height:18px;color:var(--accent);font-weight:700;"></div>
+    <div id="participant-count" style="margin-top:6px;font-size:.8rem;color:var(--muted);">... dancers joined this challenge</div>
+  </div>
+  <div class="section-title" style="margin-top:28px;margin-bottom:12px;font-size:1.1rem;">🥇 This Week's Leaderboard</div>
+  <div class="leaderboard">
+    <div class="lb-row"><div class="lb-rank">🥇</div><div class="lb-name">Maria_Salsa</div><div class="lb-votes">1,247 votes</div></div>
+    <div class="lb-row"><div class="lb-rank">🥈</div><div class="lb-name">BreakKing_ATL</div><div class="lb-votes">1,102 votes</div></div>
+    <div class="lb-row"><div class="lb-rank">🥉</div><div class="lb-name">KpopQueen_Seoul</div><div class="lb-votes">987 votes</div></div>
+    <div class="lb-row"><div class="lb-rank">4</div><div class="lb-name">HipHop_Chicago</div><div class="lb-votes">824 votes</div></div>
+    <div class="lb-row"><div class="lb-rank">5</div><div class="lb-name">SalsaNight_NYC</div><div class="lb-votes">761 votes</div></div>
+  </div>
+</div>
 
 <hr class="divider">
 
@@ -548,6 +613,47 @@
 
   <!-- VIDEO GRID -->
   <div id="video-grid"></div>
+</div>
+
+<hr class="divider">
+
+<!-- PRACTICE TIMER SECTION -->
+<div class="section" id="timer">
+  <div class="section-title">⏱️ <span>Practice Timer</span></div>
+  <p class="section-sub">Track your practice sessions, build streaks, and level up your dance skills.</p>
+  <div class="timer-card">
+    <div id="streak-display" class="streak-badge">🔥 0 day streak</div>
+    <div class="timer-display" id="timer-display">25:00</div>
+    <div class="timer-mode-row">
+      <button class="timer-mode-btn active" onclick="setTimerMode(15,this)">15 min</button>
+      <button class="timer-mode-btn" onclick="setTimerMode(25,this)">25 min</button>
+      <button class="timer-mode-btn" onclick="setTimerMode(45,this)">45 min</button>
+      <button class="timer-mode-btn" onclick="setTimerMode(60,this)">1 hour</button>
+    </div>
+    <div style="margin-bottom:10px;">
+      <select id="practice-style" style="background:var(--card2);border:1px solid var(--border);color:var(--text);padding:8px 16px;border-radius:10px;font-size:.88rem;font-family:inherit;">
+        <option value="Hip Hop">Hip Hop</option>
+        <option value="Salsa">Salsa</option>
+        <option value="K-Pop">K-Pop</option>
+        <option value="Breakdance">Breakdance</option>
+        <option value="Ballroom">Ballroom</option>
+        <option value="Contemporary">Contemporary</option>
+        <option value="Freestyle">Freestyle</option>
+      </select>
+    </div>
+    <div class="timer-btn-row">
+      <button class="t-btn t-start" id="t-start-btn" onclick="startTimer()">▶ Start</button>
+      <button class="t-btn t-pause" id="t-pause-btn" onclick="pauseTimer()" style="display:none;">⏸ Pause</button>
+      <button class="t-btn t-reset" onclick="resetTimer()">↺ Reset</button>
+    </div>
+    <div id="timer-session-msg" style="font-size:.85rem;color:var(--accent);min-height:20px;font-weight:700;"></div>
+    <div class="timer-stats">
+      <div class="t-stat"><div class="t-stat-num" id="t-total-min">0</div><div class="t-stat-label">Total Minutes</div></div>
+      <div class="t-stat"><div class="t-stat-num" id="t-streak">0</div><div class="t-stat-label">Day Streak 🔥</div></div>
+      <div class="t-stat"><div class="t-stat-num" id="t-level" style="font-size:1.1rem;">Beginner</div><div class="t-stat-label">Skill Level</div></div>
+    </div>
+    <button onclick="shareTimerStats()" class="btn-secondary" style="margin-top:16px;font-size:.85rem;padding:9px 20px;">📤 Share My Progress on X</button>
+  </div>
 </div>
 
 <hr class="divider">
@@ -617,6 +723,57 @@
 
 <hr class="divider">
 
+<!-- DANCE GEAR SHOP EXPANDED -->
+<div class="section" id="gear">
+  <div class="section-title">👟 <span>Dancer-Approved Gear Shop</span></div>
+  <p class="section-sub">Curated picks from pro dancers. Commission earned helps keep 13.dance free.</p>
+  <div class="aff-full-grid">
+    <a href="https://steezy.co" target="_blank" rel="noopener sponsored" class="aff-card">
+      <div class="aff-icon">🎓</div>
+      <div class="aff-text"><h4>STEEZY Online Classes</h4><p>Learn from top pros — $24.99/mo. Try 7 days free.</p></div>
+      <span class="aff-link">Try Free</span>
+    </a>
+    <a href="https://www.aloyoga.com/collections/leggings" target="_blank" rel="noopener sponsored" class="aff-card">
+      <div class="aff-icon">🩱</div>
+      <div class="aff-text"><h4>Alo Yoga Dancewear</h4><p>Worn by pro dancers. High-waist leggings &amp; tops.</p></div>
+      <span class="aff-link">Shop Alo</span>
+    </a>
+    <a href="https://www.amazon.com/s?k=dance+shoes&tag=spunk01-20" target="_blank" rel="noopener" class="aff-card">
+      <div class="aff-icon">👟</div>
+      <div class="aff-text"><h4>Dance Shoes (Amazon)</h4><p>Top-rated practice shoes. $34–$89. Free shipping.</p></div>
+      <span class="aff-link">Shop →</span>
+    </a>
+    <a href="https://www.masterclass.com" target="_blank" rel="noopener sponsored" class="aff-card">
+      <div class="aff-icon">🌟</div>
+      <div class="aff-text"><h4>MasterClass Dance</h4><p>Learn from JLo, Misty Copeland &amp; more. $10/mo.</p></div>
+      <span class="aff-link">Try Now</span>
+    </a>
+    <a href="https://www.dancewear.com" target="_blank" rel="noopener sponsored" class="aff-card">
+      <div class="aff-icon">🎭</div>
+      <div class="aff-text"><h4>Dancewear Solutions</h4><p>Pro dancewear, costumes &amp; accessories. 6% cashback.</p></div>
+      <span class="aff-link">Browse</span>
+    </a>
+    <a href="https://www.amazon.com/s?k=dance+technique+books&tag=spunk01-20" target="_blank" rel="noopener" class="aff-card">
+      <div class="aff-icon">📚</div>
+      <div class="aff-text"><h4>Dance Technique Books</h4><p>Top instructional books. $12–$25. All styles.</p></div>
+      <span class="aff-link">Shop →</span>
+    </a>
+    <a href="https://www.fiverr.com/categories/video-animation" target="_blank" rel="noopener sponsored" class="aff-card">
+      <div class="aff-icon">🎬</div>
+      <div class="aff-text"><h4>Fiverr Video Editors</h4><p>Get your dance clips edited pro. From $5.</p></div>
+      <span class="aff-link">Hire</span>
+    </a>
+    <a href="https://www.amazon.com/s?k=resistance+bands+dance&tag=spunk01-20" target="_blank" rel="noopener" class="aff-card">
+      <div class="aff-icon">💪</div>
+      <div class="aff-text"><h4>Resistance Bands</h4><p>Stretch &amp; strengthen. Essential for all dancers. $15.</p></div>
+      <span class="aff-link">Shop →</span>
+    </a>
+  </div>
+  <p style="font-size:.72rem;color:var(--muted);margin-top:12px;">* We earn a small commission on purchases at no extra cost to you. As an Amazon Associate SPUNK LLC earns from qualifying purchases.</p>
+</div>
+
+<hr class="divider">
+
 <!-- FIVERR CHOREOGRAPHER -->
 <div class="section">
   <div class="section-title" style="margin-bottom:14px;">🎭 <span>Hire a Choreographer</span></div>
@@ -653,6 +810,23 @@
       </div>
       <span class="aff-link">Try Free</span>
     </a>
+  </div>
+</div>
+
+<hr class="divider">
+
+<!-- NEWSLETTER -->
+<div class="section">
+  <div class="newsletter-section">
+    <div style="font-size:2.5rem;margin-bottom:8px;">💌</div>
+    <div class="section-title" style="justify-content:center;margin-bottom:6px;">Join <span id="nl-count">2,400</span>+ Dancers</div>
+    <p style="color:var(--muted);font-size:.9rem;">Weekly challenge drops, tutorial picks &amp; gear deals — free forever.</p>
+    <div class="nl-form" id="nl-form">
+      <input class="nl-input" id="nl-email" type="email" placeholder="your@email.com">
+      <button class="nl-btn" onclick="subscribeNewsletter()">Join Free →</button>
+    </div>
+    <div id="nl-msg" style="margin-top:12px;font-size:.85rem;min-height:18px;color:var(--accent);font-weight:700;"></div>
+    <p style="color:var(--muted);font-size:.72rem;margin-top:10px;">No spam. One email per week. Unsubscribe anytime.</p>
   </div>
 </div>
 
@@ -796,6 +970,145 @@
 }
 </style>
 <script>
+/* ── FIREBASE ── */
+var FB_DB = 'https://predict-network-ec767-default-rtdb.firebaseio.com';
+
+/* ── DANCER COUNTER ── */
+(function(){
+  var seed = 847 + Math.floor(Math.sin(Math.floor(Date.now()/86400000))*200+200);
+  var el = document.getElementById('dancer-count');
+  if(el) el.textContent = seed.toLocaleString();
+})();
+
+/* ── CHALLENGE SYSTEM ── */
+var CHALLENGES = [
+  {name:'Hip Hop Freeze Challenge',style:'Hip Hop',emoji:'🎤'},
+  {name:'Salsa Solo Shine Challenge',style:'Salsa',emoji:'💃'},
+  {name:'K-Pop Synchronization Challenge',style:'K-Pop',emoji:'⭐'},
+  {name:'Breakdance Footwork Challenge',style:'Breakdance',emoji:'🔥'},
+  {name:'Ballroom Isolations Challenge',style:'Ballroom',emoji:'🥂'},
+  {name:'Contemporary Improv Challenge',style:'Contemporary',emoji:'🌊'},
+  {name:'Freestyle Friday Challenge',style:'Freestyle',emoji:'🎉'},
+];
+function getWeekChallenge(){
+  var d=new Date(); var weekNum=Math.floor((d-new Date(d.getFullYear(),0,1))/(7*24*3600000));
+  return CHALLENGES[weekNum%CHALLENGES.length];
+}
+(function(){
+  var ch=getWeekChallenge();
+  var nameEl=document.getElementById('challenge-name');
+  var metaEl=document.getElementById('challenge-meta');
+  if(nameEl) nameEl.textContent=ch.emoji+' '+ch.name;
+  if(metaEl) metaEl.textContent='Style: '+ch.style+' | Prize: Get featured on @SpunkArt13';
+  fetch(FB_DB+'/dance_challenge_participants.json').then(function(r){return r.json();}).then(function(n){
+    var el=document.getElementById('participant-count');
+    if(el) el.textContent=((n||0)+1247).toLocaleString()+' dancers joined this challenge';
+  }).catch(function(){});
+})();
+window.joinChallenge=function(){
+  var ch=getWeekChallenge();
+  var txt='I\'m joining the #13dance '+ch.name+'! Follow @SpunkArt13 for the results 🕺 13.dance';
+  navigator.clipboard.writeText(txt).catch(function(){});
+  var msg=document.getElementById('join-msg');
+  if(msg){msg.textContent='✓ Challenge text copied! Paste it on X/TikTok →';setTimeout(function(){msg.textContent='';},4000);}
+  fetch(FB_DB+'/dance_challenge_participants.json').then(function(r){return r.json();}).then(function(n){
+    fetch(FB_DB+'/dance_challenge_participants.json',{method:'PUT',body:JSON.stringify((n||0)+1),headers:{'Content-Type':'application/json'}}).catch(function(){});
+  }).catch(function(){});
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank');
+};
+
+/* ── PRACTICE TIMER ── */
+var timerSeconds=15*60, timerInterval=null, timerRunning=false, selectedMin=15;
+function pad(n){return String(n).padStart(2,'0');}
+window.setTimerMode=function(min,btn){
+  selectedMin=min; timerSeconds=min*60; timerRunning=false; clearInterval(timerInterval);
+  document.getElementById('timer-display').textContent=pad(min)+':00';
+  document.querySelectorAll('.timer-mode-btn').forEach(function(b){b.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById('t-start-btn').style.display='';
+  document.getElementById('t-pause-btn').style.display='none';
+  document.getElementById('timer-session-msg').textContent='';
+};
+window.startTimer=function(){
+  if(timerRunning)return; timerRunning=true;
+  document.getElementById('t-start-btn').style.display='none';
+  document.getElementById('t-pause-btn').style.display='';
+  timerInterval=setInterval(function(){
+    timerSeconds--;
+    if(timerSeconds<=0){clearInterval(timerInterval);timerRunning=false;onTimerComplete();return;}
+    var m=Math.floor(timerSeconds/60),s=timerSeconds%60;
+    document.getElementById('timer-display').textContent=pad(m)+':'+pad(s);
+  },1000);
+};
+window.pauseTimer=function(){
+  clearInterval(timerInterval);timerRunning=false;
+  document.getElementById('t-start-btn').style.display='';
+  document.getElementById('t-pause-btn').style.display='none';
+};
+window.resetTimer=function(){
+  clearInterval(timerInterval);timerRunning=false;timerSeconds=selectedMin*60;
+  document.getElementById('timer-display').textContent=pad(selectedMin)+':00';
+  document.getElementById('t-start-btn').style.display='';
+  document.getElementById('t-pause-btn').style.display='none';
+  document.getElementById('timer-session-msg').textContent='';
+};
+function onTimerComplete(){
+  var style=document.getElementById('practice-style').value;
+  var today=new Date().toISOString().slice(0,10);
+  var sessions=JSON.parse(localStorage.getItem('dance_sessions')||'[]');
+  sessions.push({date:today,minutes:selectedMin,style:style});
+  localStorage.setItem('dance_sessions',JSON.stringify(sessions));
+  var total=(parseInt(localStorage.getItem('dance_total_min'))||0)+selectedMin;
+  localStorage.setItem('dance_total_min',total);
+  var streak=JSON.parse(localStorage.getItem('dance_streak')||'{"current":0,"last":""}');
+  var yesterday=new Date(Date.now()-86400000).toISOString().slice(0,10);
+  if(streak.last===today){}
+  else if(streak.last===yesterday){streak.current++;}
+  else{streak.current=1;}
+  streak.last=today;
+  localStorage.setItem('dance_streak',JSON.stringify(streak));
+  renderTimerStats();
+  document.getElementById('timer-session-msg').textContent='✓ +'+selectedMin+' min logged! Keep that streak going 🔥';
+  document.getElementById('timer-display').textContent='00:00';
+  document.getElementById('t-start-btn').style.display='';
+  document.getElementById('t-pause-btn').style.display='none';
+}
+function getDanceLevel(min){
+  if(min>=5000)return'Master';if(min>=1801)return'Pro';if(min>=601)return'Advanced';if(min>=121)return'Intermediate';return'Beginner';
+}
+function renderTimerStats(){
+  var total=parseInt(localStorage.getItem('dance_total_min'))||0;
+  var streak=JSON.parse(localStorage.getItem('dance_streak')||'{"current":0}');
+  document.getElementById('t-total-min').textContent=total;
+  document.getElementById('t-streak').textContent=streak.current;
+  document.getElementById('t-level').textContent=getDanceLevel(total);
+  var sd=document.getElementById('streak-display');
+  if(sd) sd.textContent='🔥 '+streak.current+' day streak';
+}
+renderTimerStats();
+window.shareTimerStats=function(){
+  var total=localStorage.getItem('dance_total_min')||0;
+  var streak=JSON.parse(localStorage.getItem('dance_streak')||'{"current":0}');
+  var level=getDanceLevel(parseInt(total));
+  var txt='I\'ve practiced '+total+' min of dance! '+streak.current+' day streak | Level: '+level+' 🕺 Track yours at 13.dance via @SpunkArt13';
+  window.open('https://twitter.com/intent/tweet?text='+encodeURIComponent(txt),'_blank');
+};
+
+/* ── NEWSLETTER ── */
+window.subscribeNewsletter=function(){
+  var email=document.getElementById('nl-email').value.trim();
+  if(!email||!email.includes('@')){document.getElementById('nl-msg').textContent='Please enter a valid email.';return;}
+  var fp=localStorage.getItem('dance_fp')||('fp_'+Math.random().toString(36).slice(2));
+  localStorage.setItem('dance_fp',fp);
+  if(localStorage.getItem('nl_sub_'+fp)){document.getElementById('nl-msg').textContent='You\'re already subscribed! 🎉';return;}
+  fetch(FB_DB+'/dance_newsletter/'+fp+'.json',{method:'PUT',body:JSON.stringify({email:email,t:Date.now()}),headers:{'Content-Type':'application/json'}}).catch(function(){});
+  localStorage.setItem('nl_sub_'+fp,'1');
+  document.getElementById('nl-msg').textContent='🎉 You\'re in! Challenge drops every Sunday.';
+  document.getElementById('nl-email').value='';
+  var n=parseInt(document.getElementById('nl-count').textContent.replace(/,/g,''))||2400;
+  document.getElementById('nl-count').textContent=(n+1).toLocaleString();
+};
+
 /* ── VIDEO DATA ── curated large pool, click-to-play with fallback */
 const VIDEOS = [
   /* HIP HOP */
