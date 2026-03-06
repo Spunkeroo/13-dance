@@ -1112,40 +1112,40 @@ window.subscribeNewsletter=function(){
 /* ── VIDEO DATA ── curated large pool, click-to-play with fallback */
 const VIDEOS = [
   /* HIP HOP */
-  {id:'V7GXqE8TuPA', title:'Hip Hop Dance Tutorial — Beginner Moves Step by Step', category:'hip-hop', level:'Beginner'},
-  {id:'dIBLBQSNYac', title:'Hip Hop Freestyle — Top 5 Moves to Learn First', category:'hip-hop', level:'Beginner'},
-  {id:'GBaHPND2QJg', title:'How to Dance Hip Hop — 10 Essential Moves', category:'hip-hop', level:'Intermediate'},
-  {id:'EFEmTsfCJKY', title:'Hip Hop Choreography — Full Beginner Routine', category:'hip-hop', level:'Beginner'},
+  {id:'OPf0YbXqDm0', title:'Uptown Funk — Mark Ronson ft. Bruno Mars', category:'hip-hop', level:'Beginner'},
+  {id:'4m1EFMoRFvY', title:'Beyoncé — Single Ladies (Put a Ring on It)', category:'hip-hop', level:'Intermediate'},
+  {id:'vCadcBR95oU', title:'Salt-N-Pepa — Push It (Hip Hop Classic)', category:'hip-hop', level:'Beginner'},
+  {id:'wyx6JDQCslE', title:'LMFAO — Sexy And I Know It (Dance Party)', category:'hip-hop', level:'Beginner'},
   /* SALSA */
-  {id:'ub82Xb1C8os', title:'Salsa Basic Steps Tutorial for Beginners', category:'salsa', level:'Beginner'},
-  {id:'8KaJdo4y6pM', title:'Bachata For Beginners — Full Tutorial', category:'salsa', level:'Beginner'},
-  {id:'hXJO3DnGOaI', title:'Salsa On2 Timing — Complete Beginner Guide', category:'salsa', level:'Beginner'},
-  {id:'ZSYEEyI-9bE', title:'Cumbia Dance Tutorial — Basic Steps and Footwork', category:'salsa', level:'Beginner'},
+  {id:'pRpeEdMmmQ0', title:'Shakira — Waka Waka (Latin Dance Anthem)', category:'salsa', level:'Beginner'},
+  {id:'ZbZSe6N_BXs', title:'Pharrell Williams — Happy (Feel-Good Dance)', category:'salsa', level:'Beginner'},
+  {id:'ru0K8uYEZWw', title:'Justin Timberlake — Can\'t Stop the Feeling', category:'salsa', level:'Beginner'},
+  {id:'nfWlot6h_JM', title:'Taylor Swift — Shake It Off (Dance Video)', category:'salsa', level:'Beginner'},
   /* BREAKDANCE */
-  {id:'DksSHXlhpS8', title:'Breakdance Basics — Freezes & Power Moves', category:'breakdance', level:'Intermediate'},
-  {id:'nHT3v1ixuqQ', title:'Top Rock Foundations — Breakdance for Beginners', category:'breakdance', level:'Beginner'},
-  {id:'J3r12BIrGIg', title:'6-Step Tutorial — The Foundation of Breakdancing', category:'breakdance', level:'Beginner'},
-  {id:'PZ6K3m5cHD8', title:'Windmill Tutorial — Learn the Classic B-Boy Move', category:'breakdance', level:'Intermediate'},
+  {id:'sOnqjkJTMaA', title:'Michael Jackson — Thriller (Iconic Zombie Dance)', category:'breakdance', level:'Intermediate'},
+  {id:'dMH0bHeiRNg', title:'Evolution of Dance — From 1950s to Now', category:'breakdance', level:'All Levels'},
+  {id:'fRh_vgS2dFE', title:'Justin Bieber — Sorry (Pure Choreography)', category:'breakdance', level:'Intermediate'},
+  {id:'h_D3VFfhvs4', title:'Michael Jackson — Smooth Criminal (Anti-Gravity Lean)', category:'breakdance', level:'Advanced'},
   /* K-POP */
-  {id:'YqeW9_5kURI', title:'K-Pop Dance Challenge — Learn in 10 Minutes', category:'kpop', level:'Beginner'},
-  {id:'9bZkp7q19f0', title:'PSY - GANGNAM STYLE Dance Tutorial', category:'kpop', level:'Beginner'},
-  {id:'IHNzOHi8sJs', title:'K-Pop Group Dance — Synchronization Tutorial', category:'kpop', level:'Intermediate'},
-  {id:'gdZLi9oWNZg', title:'K-Pop Idol Dance Challenge — Step by Step', category:'kpop', level:'Beginner'},
+  {id:'9bZkp7q19f0', title:'PSY — Gangnam Style (Viral K-Pop Dance)', category:'kpop', level:'Beginner'},
+  {id:'IHNzOHi8sJs', title:'BLACKPINK — DDU-DU DDU-DU (K-Pop Choreo)', category:'kpop', level:'Intermediate'},
+  {id:'gQlMMD8auMs', title:'BLACKPINK — Pink Venom (Girl Group Moves)', category:'kpop', level:'Intermediate'},
+  {id:'ioNng23DkIM', title:'BLACKPINK — How You Like That (Dance Practice)', category:'kpop', level:'Intermediate'},
   /* BALLROOM */
-  {id:'yTa2IcUXJ1o', title:'Waltz for Beginners — Basic Hold and Steps', category:'ballroom', level:'Beginner'},
-  {id:'3dK9FVqRpDA', title:'Tango Basics — Posture, Walk, and Connection', category:'ballroom', level:'Beginner'},
-  {id:'RpBJmxm47CA', title:'Cha Cha Cha Tutorial — Footwork and Rhythm', category:'ballroom', level:'Beginner'},
-  {id:'e9lDMB4Pxuc', title:'Foxtrot for Beginners — Box Step and Social Dancing', category:'ballroom', level:'Beginner'},
+  {id:'JGwWNGJdvx8', title:'Ed Sheeran — Shape of You (Dance Edit)', category:'ballroom', level:'Beginner'},
+  {id:'LjhCEhWiKXk', title:'Bruno Mars — Just The Way You Are (Slow Dance)', category:'ballroom', level:'Beginner'},
+  {id:'FGBhQbmPwH8', title:'Daft Punk — One More Time (Electronic Dance)', category:'ballroom', level:'Beginner'},
+  {id:'8WEtxJ4-sh4', title:'TLC — Waterfalls (90s R&B Classic)', category:'ballroom', level:'Beginner'},
   /* CONTEMPORARY */
-  {id:'oygrmJFKYZY', title:'Contemporary Dance — Lose Control', category:'contemporary', level:'Advanced'},
-  {id:'LsoLEjrDngU', title:'Contemporary Dance — Emotional Expression', category:'contemporary', level:'Advanced'},
-  {id:'Vr2dRdfUzpM', title:'Contemporary Choreography — Floor Work and Levels', category:'contemporary', level:'Intermediate'},
-  {id:'ktvTqknDobU', title:'Lyrical Dance Tutorial — Connecting Movement to Music', category:'contemporary', level:'Intermediate'},
+  {id:'oygrmJFKYZY', title:'Dua Lipa — Don\'t Start Now (Contemporary)', category:'contemporary', level:'Advanced'},
+  {id:'2vjPBrBU-TM', title:'Sia — Chandelier (Contemporary Dance)', category:'contemporary', level:'Advanced'},
+  {id:'YqeW9_5kURI', title:'Major Lazer — Lean On (Dance Video)', category:'contemporary', level:'Intermediate'},
+  {id:'DyDfgMOUjCI', title:'Billie Eilish — Bad Guy (Modern Dance)', category:'contemporary', level:'Intermediate'},
   /* TUTORIALS */
-  {id:'ZJbq_-K-5Hk', title:'How to Improve Your Dance Timing — Musicality Guide', category:'tutorials', level:'All Levels'},
-  {id:'PsKWHVoJVCU', title:'Beginner Dance Warm-Up Routine — 10 Minutes', category:'tutorials', level:'Beginner'},
-  {id:'3Bh9gkpBQbY', title:'How to Dance at a Party — Social Dancing 101', category:'tutorials', level:'Beginner'},
-  {id:'xQjpHa0TCAM', title:'Flexibility and Stretching for Dancers', category:'tutorials', level:'All Levels'},
+  {id:'gdZLi9oWNZg', title:'BTS — Dynamite (Learn the K-Pop Moves)', category:'tutorials', level:'Beginner'},
+  {id:'ktvTqknDobU', title:'Imagine Dragons — Radioactive (Dance Fitness)', category:'tutorials', level:'All Levels'},
+  {id:'kYtGl1dX5qI', title:'will.i.am ft. Britney Spears — Scream & Shout', category:'tutorials', level:'Beginner'},
+  {id:'GBaHPND2QJg', title:'Banco Sabadell Flashmob — Ode to Joy (Viral Dance)', category:'tutorials', level:'All Levels'},
 ];
 
 let activeCategory = 'all';
