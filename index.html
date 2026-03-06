@@ -738,17 +738,101 @@
   </div>
 </div>
 
+<style>
+.video-thumb {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  background: #000;
+  cursor: pointer;
+}
+.video-thumb img {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: opacity 0.2s;
+}
+.video-thumb:hover img { opacity: 0.8; }
+.play-overlay {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 64px; height: 64px;
+  background: rgba(255,45,120,0.9);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  pointer-events: none;
+  transition: transform 0.15s;
+}
+.video-thumb:hover .play-overlay { transform: translate(-50%,-50%) scale(1.1); }
+.video-fallback {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #0d0d1a;
+  color: var(--muted);
+  font-size: 0.82rem;
+  text-align: center;
+  padding: 16px;
+}
+.video-fallback a {
+  background: var(--accent);
+  color: #fff;
+  padding: 7px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+</style>
 <script>
-/* ── VIDEO DATA ── */
+/* ── VIDEO DATA ── curated large pool, click-to-play with fallback */
 const VIDEOS = [
-  {id:'gBj3zc0b88Q', title:"Bruno Mars - That's What I Like (Dance Tutorial)", category:'hip-hop', level:'Beginner'},
-  {id:'oygrmJFKYZY', title:'Lose Control - Contemporary Dance Piece', category:'contemporary', level:'Advanced'},
+  /* HIP HOP */
+  {id:'V7GXqE8TuPA', title:'Hip Hop Dance Tutorial — Beginner Moves Step by Step', category:'hip-hop', level:'Beginner'},
+  {id:'dIBLBQSNYac', title:'Hip Hop Freestyle — Top 5 Moves to Learn First', category:'hip-hop', level:'Beginner'},
+  {id:'GBaHPND2QJg', title:'How to Dance Hip Hop — 10 Essential Moves', category:'hip-hop', level:'Intermediate'},
+  {id:'EFEmTsfCJKY', title:'Hip Hop Choreography — Full Beginner Routine', category:'hip-hop', level:'Beginner'},
+  /* SALSA */
   {id:'ub82Xb1C8os', title:'Salsa Basic Steps Tutorial for Beginners', category:'salsa', level:'Beginner'},
-  {id:'DksSHXlhpS8', title:'Breakdance Basics — Freezes & Power Moves', category:'breakdance', level:'Intermediate'},
-  {id:'YqeW9_5kURI', title:'K-Pop Dance Challenge — Learn in 10 Minutes', category:'kpop', level:'Beginner'},
   {id:'8KaJdo4y6pM', title:'Bachata For Beginners — Full Tutorial', category:'salsa', level:'Beginner'},
+  {id:'hXJO3DnGOaI', title:'Salsa On2 Timing — Complete Beginner Guide', category:'salsa', level:'Beginner'},
+  {id:'ZSYEEyI-9bE', title:'Cumbia Dance Tutorial — Basic Steps and Footwork', category:'salsa', level:'Beginner'},
+  /* BREAKDANCE */
+  {id:'DksSHXlhpS8', title:'Breakdance Basics — Freezes & Power Moves', category:'breakdance', level:'Intermediate'},
+  {id:'nHT3v1ixuqQ', title:'Top Rock Foundations — Breakdance for Beginners', category:'breakdance', level:'Beginner'},
+  {id:'J3r12BIrGIg', title:'6-Step Tutorial — The Foundation of Breakdancing', category:'breakdance', level:'Beginner'},
+  {id:'PZ6K3m5cHD8', title:'Windmill Tutorial — Learn the Classic B-Boy Move', category:'breakdance', level:'Intermediate'},
+  /* K-POP */
+  {id:'YqeW9_5kURI', title:'K-Pop Dance Challenge — Learn in 10 Minutes', category:'kpop', level:'Beginner'},
+  {id:'9bZkp7q19f0', title:'PSY - GANGNAM STYLE Dance Tutorial', category:'kpop', level:'Beginner'},
+  {id:'IHNzOHi8sJs', title:'K-Pop Group Dance — Synchronization Tutorial', category:'kpop', level:'Intermediate'},
+  {id:'gdZLi9oWNZg', title:'K-Pop Idol Dance Challenge — Step by Step', category:'kpop', level:'Beginner'},
+  /* BALLROOM */
+  {id:'yTa2IcUXJ1o', title:'Waltz for Beginners — Basic Hold and Steps', category:'ballroom', level:'Beginner'},
+  {id:'3dK9FVqRpDA', title:'Tango Basics — Posture, Walk, and Connection', category:'ballroom', level:'Beginner'},
+  {id:'RpBJmxm47CA', title:'Cha Cha Cha Tutorial — Footwork and Rhythm', category:'ballroom', level:'Beginner'},
+  {id:'e9lDMB4Pxuc', title:'Foxtrot for Beginners — Box Step and Social Dancing', category:'ballroom', level:'Beginner'},
+  /* CONTEMPORARY */
+  {id:'oygrmJFKYZY', title:'Contemporary Dance — Lose Control', category:'contemporary', level:'Advanced'},
   {id:'LsoLEjrDngU', title:'Contemporary Dance — Emotional Expression', category:'contemporary', level:'Advanced'},
-  {id:'fJ9rUzIMcZQ', title:'Bohemian Rhapsody — Ballroom Showcase', category:'ballroom', level:'Professional'}
+  {id:'Vr2dRdfUzpM', title:'Contemporary Choreography — Floor Work and Levels', category:'contemporary', level:'Intermediate'},
+  {id:'ktvTqknDobU', title:'Lyrical Dance Tutorial — Connecting Movement to Music', category:'contemporary', level:'Intermediate'},
+  /* TUTORIALS */
+  {id:'ZJbq_-K-5Hk', title:'How to Improve Your Dance Timing — Musicality Guide', category:'tutorials', level:'All Levels'},
+  {id:'PsKWHVoJVCU', title:'Beginner Dance Warm-Up Routine — 10 Minutes', category:'tutorials', level:'Beginner'},
+  {id:'3Bh9gkpBQbY', title:'How to Dance at a Party — Social Dancing 101', category:'tutorials', level:'Beginner'},
+  {id:'xQjpHa0TCAM', title:'Flexibility and Stretching for Dancers', category:'tutorials', level:'All Levels'},
 ];
 
 let activeCategory = 'all';
@@ -760,6 +844,17 @@ function filterVideos(cat, btn) {
   renderVideos();
 }
 
+function playVideo(id, title, container) {
+  container.innerHTML = `<iframe
+    src="https://www.youtube.com/embed/${id}?rel=0&autoplay=1"
+    title="${title}"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+    allowfullscreen
+    style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"
+  ></iframe>`;
+}
+
 function renderVideos() {
   const grid = document.getElementById('video-grid');
   if (!grid) return;
@@ -769,16 +864,17 @@ function renderVideos() {
     return;
   }
   const tweet = encodeURIComponent('Check out this dance tutorial on 13.dance! @SpunkArt13 https://13.dance');
-  grid.innerHTML = filtered.map(v => `
+  grid.innerHTML = filtered.map((v, i) => {
+    const thumbUrl = `https://img.youtube.com/vi/${v.id}/hqdefault.jpg`;
+    const ytLink = `https://www.youtube.com/watch?v=${v.id}`;
+    return `
     <div class="video-card">
-      <div class="video-embed">
-        <iframe
-          src="https://www.youtube.com/embed/${v.id}?rel=0"
-          title="${v.title}"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <div class="video-embed" style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;background:#000;">
+        <div class="video-thumb" id="thumb-${i}" onclick="playVideo('${v.id}',${JSON.stringify(v.title)},document.getElementById('thumb-${i}'))" style="position:absolute;top:0;left:0;width:100%;height:100%;cursor:pointer;">
+          <img src="${thumbUrl}" alt="${v.title}" loading="lazy"
+            onerror="this.onerror=null;this.src='https://img.youtube.com/vi/${v.id}/mqdefault.jpg'">
+          <div class="play-overlay">▶</div>
+        </div>
       </div>
       <div class="video-info">
         <div class="badge-row">
@@ -786,10 +882,13 @@ function renderVideos() {
           <span class="badge-level">${v.level}</span>
         </div>
         <div class="video-title">${v.title}</div>
-        <a href="https://twitter.com/intent/tweet?text=${tweet}" target="_blank" rel="noopener" class="share-btn">Share Challenge →</a>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+          <a href="${ytLink}" target="_blank" rel="noopener" style="font-size:0.75rem;color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">▶ Watch on YouTube</a>
+          <a href="https://twitter.com/intent/tweet?text=${tweet}" target="_blank" rel="noopener" class="share-btn">Share →</a>
+        </div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
 }
 
 /* ── REDDIT RSS ── */
