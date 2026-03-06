@@ -817,13 +817,26 @@ async function loadRedditDance() {
 
 /* ── BTC TICKER ── */
 async function loadBTC() {
-  try {
-    const d = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd').then(r => r.json());
-    if (d.bitcoin) {
-      const el = document.getElementById('btc-ticker');
-      if (el) el.textContent = '₿ $' + d.bitcoin.usd.toLocaleString();
-    }
+  let price = null;
+  // API 1: CoinGecko
+  if (!price) try {
+    const r = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd');
+    if (r.ok) { const d = await r.json(); if (d && d.bitcoin) price = d.bitcoin.usd; }
   } catch(e) {}
+  // API 2: CoinCap (no key, no rate limit)
+  if (!price) try {
+    const r = await fetch('https://api.coincap.io/v2/assets/bitcoin');
+    if (r.ok) { const d = await r.json(); if (d && d.data) price = parseFloat(d.data.priceUsd); }
+  } catch(e) {}
+  // API 3: Coinpaprika (no key, no rate limit)
+  if (!price) try {
+    const r = await fetch('https://api.coinpaprika.com/v1/tickers/btc-bitcoin?quotes=USD');
+    if (r.ok) { const d = await r.json(); if (d && d.quotes && d.quotes.USD) price = d.quotes.USD.price; }
+  } catch(e) {}
+  if (price) {
+    const el = document.getElementById('btc-ticker');
+    if (el) el.textContent = '₿ $' + Math.round(price).toLocaleString();
+  }
 }
 
 /* ── INIT ── */
