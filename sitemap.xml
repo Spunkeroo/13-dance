@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://13.dance/</loc>
-    <lastmod>2026-03-05</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://13.dance/</loc><lastmod>2026-03-07</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://13.dance/blog/breakdancing-basics-adults.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://13.dance/blog/hip-hop-dance-beginners-guide.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://13.dance/blog/index.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://13.dance/blog/kpop-dance-tutorial-learn-moves.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://13.dance/blog/salsa-dance-for-beginners.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://13.dance/index.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://13.dance/privacy.html</loc><lastmod>2026-03-07</lastmod><changefreq>weekly</changefreq><priority>0.7</priority></url>
 </urlset>
